@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Form Example</h2>
+    <p id="msg"></p>
+
+    <form id="form">
+
+        <input type="text" id="Username" placeholder="Enter username">
+
+        <input type="Password" id="password" placeholder="Enter password">
+
+        <button type="submit">Submit</button>
+
+    </form>
+    
+</body>
+<script>
+    const form = document.querySelector("#form")
+    const Usernme = document.querySelector("#Username")
+    const passwrdint = document.querySelector("#password")
+    const msg = document.querySelector("#msg")
+
+    form.addEventListener("submit", function (e) {
+         e.preventDefault()
+         const pas = passwrdint.value
+
+        if(pas.length < 8|| pas.length >10){
+            msg.innerText = " Password must be 8 to 10 characters"
+            return
+        }
+        if(!/[A-Z]/.test(pas)){
+            msg.innerText = "Password must contain at least one capital letter"
+            return
+        }
+        
+        msg.innerText = "Strong Password";
+
+        console.log("Username:", username.value)
+        console.log("Password:", pas)
+    })
+</script>
+</html>
